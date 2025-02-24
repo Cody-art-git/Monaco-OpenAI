@@ -31,10 +31,10 @@ export const POST = async (req) => {
         model: "gpt-4o"
     });
 
-    console.log("1111111111111")
+
     const thread = await openai.beta.threads.create();
 
-    console.log("22222222")
+
     const message = await openai.beta.threads.messages.create(
         thread.id,
         {
@@ -43,7 +43,7 @@ export const POST = async (req) => {
         }
     );
 
-    console.log("3333333333")
+
     let run = await openai.beta.threads.runs.createAndPoll(
         thread.id,
         {
@@ -52,7 +52,7 @@ export const POST = async (req) => {
         }
     );
 
-    console.log("444444444")
+
 
     const handleRequiresAction = async () => {
         // Check if there are tools that require outputs
